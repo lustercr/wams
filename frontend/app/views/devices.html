@@ -1,3 +1,4 @@
+<div ng-include src="'views/header.html'"></div>
 <ul>
 	<input type="search" ng-model="deviceFilter" name="deviceFilter">
 	<li ng-repeat="device in devices | filter:deviceFilter">

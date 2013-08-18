@@ -1,10 +1,13 @@
 'use strict';
 
 angular.module('wamsApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope', '$route', 
+  	function ($scope, $route) {
+  		$scope.$route = $route;
+	    $scope.awesomeThings = [
+	      'HTML5 Boilerplate',
+	      'AngularJS',
+	      'Karma'
+	    ];
+	  }
+  ]);
