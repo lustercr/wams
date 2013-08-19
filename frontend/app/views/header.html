@@ -1,9 +1,12 @@
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">Where are my stuff ?</a>
+    <span class="app-loading-container">
+      <span class="app-loading-animation" data-ng-class="status"></span>
+    </span>
+    <a class="brand" href="#">{{'TITLE' | translate}}</a>
     <ul class="nav">
-      <li ng-class="{active: $route.current.activeMenu == 'dashboard'}"><a href="#">Home</a></li>
-      <li ng-class="{active: $route.current.activeMenu == 'devices'}"><a href="#/devices">Devices</a></li>
+      <li ng-class="{active: $route.current.activeMenu == 'dashboard'}"><a href="#">{{ 'HOME' | translate }}</a></li>
+      <li ng-class="{active: $route.current.activeMenu == 'devices'}"><a href="#/devices">{{ 'DEVICES' | translate }}</a></li>
     </ul>
   </div>
 </div>

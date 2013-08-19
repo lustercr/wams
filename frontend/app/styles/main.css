@@ -20,3 +20,30 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+.app-loading-container {
+  float:left;
+  margin-right:20px;
+  width:25px;
+  height:25px;
+}
+
+.app-loading-animation {
+  -webkit-transition:all 0.25s linear;
+  background:url(../images/spinner.gif) center center no-repeat;
+  width: 20px;
+  height: 20px;
+  display: block;
+  padding-top: 19px;
+  padding-left: 26px;
+  background-size: 20px 20px;
+}
+
+.app-loading-animation.ready {
+  opacity:0;
+}
+
+.app-loading-animation,
+.app-loading-animation.loading {
+  opacity:1;
+}
