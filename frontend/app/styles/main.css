@@ -47,3 +47,17 @@ body {
 .app-loading-animation.loading {
   opacity:1;
 }
+
+
+.login-div {
+  width: 380px;
+  margin: auto;
+  padding: 20px 25px;
+  border-radius: 10px;
+  border: 1px solid #CCC;
+}
+
+.login-div input {
+  height: 35px;
+}
+

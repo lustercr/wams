@@ -13,6 +13,7 @@
   , "seedjs": "latest"
   , "co-assets-compiler": "*"
   , "jugglingdb-mongodb": "latest"
+  , "password-hash": "latest"
   },
   "devDependencies":
   { "nodeunit": "*"

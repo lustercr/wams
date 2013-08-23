@@ -13,6 +13,13 @@ angular.module('wamsApp', ['ngResource', 'pascalprecht.translate'])
                     templateUrl: 'views/devices/index.html',
                     controller: 'DevicesCtrl',
                     activeMenu: 'devices'
+               }).when('/register', {
+                    templateUrl: 'views/users/new.html',
+                    controller: 'CreateUserCtrl'
+               }).when('/login', {
+                    templateUrl: 'views/users/login.html',
+                    controller: 'LoginCtrl',
+                    activeMenu: 'dashboard'
                })
                .otherwise( {
                     redirectTo: '/'

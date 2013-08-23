@@ -1,0 +1,10 @@
+<div ng-include src="'views/header.html'"></div>
+<div class="login-div">
+	<form action="">
+		<p>{{ 'LOGIN' | translate }}</p>
+		<input type="text" class="input-block-level" ng-model="email" placeholder="Email">
+		<input type="password" class="input-block-level" ng-model="password" placeholder="Password">
+		<a href="#/register" class="pull-left">{{'REGISTER_LINK' | translate}}</a>
+		<button class="btn btn-primary pull-right">Login</button>
+	</form>
+</div>

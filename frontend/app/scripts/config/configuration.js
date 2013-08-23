@@ -19,6 +19,7 @@ angular.module('wamsApp')
 	   .constant('API_URL', apiEndPoint)
        .constant('CONFIGURATIONS', {
        		apiUrls: {
-       			devices: apiEndPoint + 'devices'
+       			devices: apiEndPoint + 'devices',
+       			users: apiEndPoint + 'users'
        		}
        	})

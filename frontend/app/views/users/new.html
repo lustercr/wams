@@ -1,0 +1,45 @@
+<div ng-include src="'views/header.html'"></div>
+
+<form name="form" class="form-horizontal" novalidate>
+  
+  <div class="control-group">
+    <label class="control-label" for="user.name">Name</label>
+    <div class="controls">
+      <input type="text" ng-model="user.name" name="username" required placeholder="Name">
+    </div>
+  </div>
+
+  <div class="control-group ng-class: {error: form.useremail.$dirty && form.useremail.$invalid}">
+    <label class="control-label" for="useremail">Email</label>
+    <div class="controls">
+      <input type="email" ng-model="user.email" name="useremail" required placeholder="Email">
+      <div ng-show="form.useremail.$dirty">
+        <span class="help-inline" ng-show="form.useremail.$error.required">{{ 'REQUIRED_EMAIL_FIELD' | translate }}</span>
+        <span class="help-inline" ng-show="form.useremail.$error.email">{{ 'INVALID_EMAIL_FIELD' | translate }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-group ng-class: {error: form.password.$dirty && form.password.$invalid}">
+    <label class="control-label" for="inputPassword">Password</label>
+    <div class="controls">
+      <input ng-model="user.password" type="password" id="inputPassword" placeholder="Password" required ng-minlength="6">
+    </div>
+  </div>
+
+  <div class="control-group ng-class: {error: form.password_confirmation.$dirty && form.password_confirmation.$invalid}">
+    <label class="control-label" for="user.password_confirmation">Confirmation</label>
+    <div class="controls">
+      <input ng-model="user.password_confirmation" type="password" name="password_confirmation" id="user.password_confirmation" placeholder="Password Confirmation" required ng-minlength="6">
+      <span class="help-inline" ng-show="form.password_confirmation.$dirty && form.password_confirmation.$invalid ">{{ 'INVALID_EMAIL_FIELD' | translate }}</span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <button class="btn">Cancel</button>
+      <button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="createUser()">Create</button>
+    </div>
+  </div>
+
+</form>

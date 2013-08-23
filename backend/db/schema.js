@@ -27,3 +27,11 @@ var Device = describe('Device', function () {
     set('restPath', pathTo.devices);
 });
 
+var User = describe('User', function () {
+	property('name', String);
+	property('email', String);
+	property('auth_token', String);
+	property('password_hash', String);
+    set('restPath', pathTo.users);
+});
+
