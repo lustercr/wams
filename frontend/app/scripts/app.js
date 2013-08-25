@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wamsApp', ['ngResource', 'pascalprecht.translate'])
+angular.module('wamsApp', ['ngRoute', 'ngResource', 'pascalprecht.translate'])
      .config(['$routeProvider', '$locationProvider',
           function($routeProvider, $locationProvider ) {
                $routeProvider
@@ -29,12 +29,15 @@ angular.module('wamsApp', ['ngResource', 'pascalprecht.translate'])
                     redirectTo: '/'
                });
           }
-     ]).run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
+     ])
+     .run(['$rootScope', '$location', 'Auth', 
+          function ($rootScope, $location, Auth) {
 
-          $rootScope.user = store.get('currentUser') || {};
-          $rootScope.$on("$routeChangeStart", function (event, next, current) {
-               if (next.authReq && !Auth.isLoggedIn()) {
-                    $location.path('/login');
-               }
-          });
-     }]);
+               $rootScope.user = store.get('currentUser') || {};
+               $rootScope.$on("$routeChangeStart", function (event, next, current) {
+                    if (next.authReq && !Auth.isLoggedIn()) {
+                         $location.path('/login');
+                    }
+               });
+          }
+     ]);

@@ -24,6 +24,7 @@
 var Device = describe('Device', function () {
     property('name', String);
     property('uuid', String);
+    property('user_id', String);
     set('restPath', pathTo.devices);
 });
 
@@ -35,3 +36,5 @@ var User = describe('User', function () {
     set('restPath', pathTo.users);
 });
 
+Device.belongsTo(User, {as: 'owner', foreignKey: 'user_id'});
+User.hasMany(Device,   {as: 'devices',  foreignKey: 'user_id'});

@@ -1,13 +1,13 @@
 angular.module('wamsApp')
-	.service('Auth', ['$rootScope', 'SessionResource', 
-		function($rootScope, SessionResource) {
+	.service('Auth', ['SessionResource', 
+		function(SessionResource) {
 
 			this.isLoggedIn = function() {
-				return $rootScope.user.id != undefined;
+				return typeof this.currentUser() != "undefined";
 			};
 
 			this.currentUser = function() {
-
+				return store.get('currentUser');
 			};
 
 			this.login = function(email, password, success, error) {
@@ -15,7 +15,6 @@ angular.module('wamsApp')
 
 				session.$save(function() {
 					store.set('currentUser', session);
-					$rootScope.user = session;
 					success.call(session);
 				}, function(){
 					error.call();

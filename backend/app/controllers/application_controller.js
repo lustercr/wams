@@ -1,6 +1,6 @@
-//publish('checkAuthToken', checkAuthToken);
+publish('checkAuthToken', checkAuthToken);
 
-//before(current_user);
+//before(checkAuthToken);
 
 function checkAuthToken() {
     var auth_token = req.headers.auth_token || req.query.auth_token,
@@ -9,11 +9,12 @@ function checkAuthToken() {
     user = User.findOne({
         where: {
             auth_token: auth_token
-        }
+        }, async: false
     }, function(err, user) {
         if (err) {
             return send(500, {
-                error: "something went wrong"
+                error: "something went wrong",
+                code: 'error_500'
             });
         } else if (user && user.token_expiration < new Date()) {
             return send(401, {
@@ -26,22 +27,7 @@ function checkAuthToken() {
                 code: 'auth_01'
             });
         };
+        this.current_user = user;
         next();
-    });
+    }.bind(this));
 };
-
-function current_user() {
-    var auth_token = req.headers.auth_token || req.query.auth_token;
-    if (auth_token) {
-        User.findOne({
-            where: {
-                auth_token: auth_token
-            }, async: false
-        }, function(err, user) {
-            if (user) {
-                this.current_user = user;
-                next();
-            }
-        }.bind(this));
-    }
-}

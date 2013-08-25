@@ -5,6 +5,10 @@ before(loadUser, {
 });
 
 
+before(use('checkAuthToken'), {
+    except: ['login', 'create']
+}); 
+
 action(function create() {
     User.create(req.body.User, function (err, user) {
         if (err) {

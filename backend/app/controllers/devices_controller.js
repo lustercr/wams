@@ -4,6 +4,8 @@ before(loadDevice, {
     only: ['show', 'edit', 'update', 'destroy']
     });
 
+before(use('checkAuthToken'));
+
 action('new', function () {
     this.title = 'New device';
     this.device = new Device;
@@ -37,7 +39,7 @@ action(function create() {
 });
 
 action(function index() {
-    Device.all(function (err, devices) {
+    this.current_user.devices.find({}, function (err, devices) {
         send(200, devices);
     });
 });
