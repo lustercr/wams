@@ -1,6 +1,6 @@
 <div ng-include src="'views/header.html'"></div>
 <ul>
-	<input type="search" ng-model="deviceFilter" name="deviceFilter">
+	<input type="search" ng-model="deviceFilter" name="deviceFilter" placeholder="Filter" id="deviceFilter">
 	<li ng-repeat="device in devices | filter:deviceFilter">
 		<p>{{device.name}}</p>
 	</li>

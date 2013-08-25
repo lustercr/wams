@@ -48,6 +48,7 @@ action(function login() {
                 console.log(user.password_hash);
                 if (hasher.verify(password, user.password_hash)) {
                     User.generate_token(user, function(usr) {
+                        usr.id = user.id;
                         send(usr);
                     });
                 } else {

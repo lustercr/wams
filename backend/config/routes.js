@@ -1,6 +1,6 @@
 exports.routes = function (map) {
+	map.post('login', 'users#login');
     map.resources('users');
-    map.post('login', 'users#login');
     map.resources('devices');
 
     // Generic routes. Add all your routes below this line
